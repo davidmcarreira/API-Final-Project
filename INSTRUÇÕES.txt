@@ -1,0 +1,56 @@
+ANÁLISE E PROCESSAMENTO DE IMAGEM - 2020/2021
+Projeto Final - David Carreira 2016242866
+
+Este projeto é um programa baseado em Python 3 de processamento de imagens em versões HDR (utilizando uma 
+sucessão de imagens e através de uma só imagem). O GUI foi desenvolvido todo de raíz e especificamente para
+este propósito com o auxílio da biblioteca PySimpleGui. Algumas funções de manipulação de imagem, 
+nomeadamente, leitura e escrita, por exemplo, foram resolvidas graças ao API OpenCV.
+
+Ainda que esta versão seja a versão final para entrega, não tenciono que seja versão final do aplicação em si.
+Foi um projeto que gostei muito de desenvolver, pelo que pretendo continuar a adicionar mais funcionalidades
+e a melhorar outras. Tais como:
+- Resolução diinâmica do GUI (consoante o ecrã da pessoa)
+- Opção de introdução dos tempos de exposição manualmente. Esta é uma variável fulcral para o funcionamento
+dos algoritmos, porém, neste momento, encontra-se embutida no código, pelo que apenas irá funcionar corretamente
+com as imagens fornecidas na pasta "Upload".
+- Melhoria do algoritmo de "Single Image HDR" (neste momento, se a imagem for muito grande, o tempo de aplicação
+dos parâmetros de gamma, contraste e brightness irá depender do sistema do utilizador, visto a manipulação ser
+feita píxel a píxel).
+
+FUNCIONALIDADES
+
+-> O programa é capaz de ler e guardar imagens, consoante a tarefa realizada;
+-> Lê imagens em pastas e mostra os ficheiros numa lista;
+-> Selecionando uma ficheiro da lista, este é redimensionado e mostrado no "Image Previewer" e na 
+  terceira aba (Processing #3);
+-> Na aba Processing #1 e Processing #2 é mostrada a imagem HDR resultado da sucessão de imagens
+  com diferentes tempos de exposição (Debevec) e sem consideração desses tempos (Mertens), respetivamente;
+-> Na aba Processing #3 é mostrada a imagem selecionada na lista e feito propmt de um painel de controlo que
+  permite fazer correção de gama, contraste e brilho. O objetivo será alterar a imagem selecionada, de modo
+  a termos 3 imagems: uma com pouca exposição, uma com a exposição correta e uma excessivamente exposta;
+-> Na aba Processing #4 é dado o resultado da média pesada das imagens manipuladas e guardadas aquando da
+  utilização da aba #3, ou seja, o "Single Image HDR";
+-> Tem um visualizador de imagens em slide integrado (Botão "Image Viewer" abaixo da lista);
+
+COMO UTILIZAR
+
+1.- Correr o .exe hdr
+2.- Selecione uma pasta com o botão "Procurar".
+	- Selecione a pasta "Upload", é onde tem as imagens preparadas para serem processadas e
+	  mostradas na aba #1 e #2
+	- Se selecionar imagens de uma pasta qualquer que não seja a pasta "Upload", os algoritmos
+	  de Debevec e Mertens, não funcionam. Tal acontece não por erro, mas porque ainda não foi
+	  adicionada a opção de introdução manual dos tempos de exposição. Não obstante, ainda é
+	  possível fazer uso da função de "Single Image HDR" (separadores #3 e #4).
+3.- Selecione um ficheiro da Lista, será aberta uma nova janela com as instruções do que deve fazer.
+	- MUITO IMPORTANTE: se o processamento do contraste/brightness demorar muito, significa que o computador
+	  tem memória insuficiente. Neste caso, deve selecionar "Procurar" e abrir a pasta Lenna e utilizar
+	  essa imagem apenas para testar a funcionalidade de "Single Image HDR". 
+
+Os resultados dos separadores #1, #2 e #4 são guardados na pasta Results. As imagens produzidas no
+separador #3 são guardadas nas pastas Results>myHDR.
+
+
+
+NOTA: Ignorar a pasta Temp, é apenas um intermediário entre a imagem selecionada, o redimensionamento dessa
+imagem e o output no GUI.
